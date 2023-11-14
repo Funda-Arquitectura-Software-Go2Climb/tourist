@@ -11,11 +11,6 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
   dialect: config.dialect
 });
 
-
-require('dotenv').config(); // Carga las variables de entorno desde el archivo .env
-const jwtSecret = process.env.JWT_SECRET;
-
-
 // Middleware
 app.use(bodyParser.json());
 

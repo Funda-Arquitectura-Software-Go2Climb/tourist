@@ -46,6 +46,4 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     return Tourist;
-    
 }
-
