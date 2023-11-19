@@ -1,9 +1,10 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
-    "database": "touristdb", 
-    "host": "mysql_tourist", 
+    "password": "3EA2bFbhh-CHh1dfdd-ad44-c665cHeg",
+    "database": "railway", 
+    "host": "monorail.proxy.rlwy.net", 
+    "port":50974,
     "dialect": "mysql"
   },
   "test": {
