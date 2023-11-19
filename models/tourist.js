@@ -41,7 +41,8 @@ module.exports = (sequelize, DataTypes) => {
         }
     }, {
         sequelize,
-        modelName: 'Tourist',
+        modelName: 'touristdb',
+        tableName: 'tourist', 
         timestamps: false
     });
 

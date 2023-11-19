@@ -1,20 +1,23 @@
 # Use an official Node.js runtime as a parent image
 FROM node:18.15.0
 
-# Set the working directory in the container
-WORKDIR /usr/src
+# Establece el directorio de trabajo dentro del contenedor
+WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json to the container
+# Copia solo los archivos necesarios para instalar dependencias
 COPY package*.json ./
 
-# Install application dependencies
+# Instala Sequelize CLI de forma global
+RUN npm install -g sequelize-cli
+
+# Instala las dependencias
 RUN npm install
 
-# Copy the rest of your application's source code to the container
+# Ahora copia el resto de los archivos
 COPY . .
 
-# Expose a port (e.g., 3000) that your Node.js app will listen on
-EXPOSE 3000
+# Expón el puerto en el que tu aplicación se ejecuta
+EXPOSE 3002
 
-# Define the command to run your Node.js application
+# Establece el comando para iniciar la aplicación
 CMD ["node", "server.js"]

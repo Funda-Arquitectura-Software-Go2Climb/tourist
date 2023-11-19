@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { Sequelize } = require('sequelize');
 const app = express();
-const PORT = 3000;
+const PORT = 3002;
 
 const env = process.env.NODE_ENV || 'development';
 const config = require('./config/config.json')[env];

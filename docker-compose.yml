@@ -1,0 +1,16 @@
+version: '3'
+services:
+  mysql_tourist:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: touristdb
+    ports:
+      - "3308:3308"
+
+  node-app:
+    build: .
+    ports:
+      - "3002:3002"
+    depends_on:
+      - mysql_tourist

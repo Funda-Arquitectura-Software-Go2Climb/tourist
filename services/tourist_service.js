@@ -1,21 +1,35 @@
-const db = require('../models');
-const Tourist = db.Tourist;
+const touristRepository = require('../repositories/tourist_repository');
 
 
-const getAllTourists = async () => {
-  return Tourist.findAll();
+const createTourist = async (touri) => {
+  try {
+    const createdTourist = await touristRepository.createTourist(touri);
+    return createdTourist;
+  } catch (error) {
+    throw new Error('Error al crear un nuevo turista: ' + error.message);
+  }
 };
 
-const createTourist = async (touristData) => {
-  return await Tourist.create(touristData);
+const getAllTourists = async () => {
+  try {
+    const tourists = await touristRepository.getAllTourists();
+    return tourists;
+  } catch (error) {
+    throw new Error('Error al obtener la lista de turistas: ' + error.message);
+  }
 };
 
 const getTouristById = async (id) => {
-  return await Tourist.findByPk(id);
+  try {
+    const tourist = await touristRepository.getTouristById(id);
+    return tourist;
+  } catch (error) {
+    throw new Error('Error al obtener el turista por ID: ' + error.message);
+  }
 };
 
 module.exports = {
-  getAllTourists,
   createTourist,
+  getAllTourists,
   getTouristById,
 };
