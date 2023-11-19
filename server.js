@@ -26,13 +26,19 @@ const PORT = process.env.PORT || 3002;
 sequelize.sync()
   .then(() => {
     // Iniciar el servidor después de sincronizar el modelo*/
-    app.listen(PORT, () => {
-      console.log('Conexión a la base de datos establecida y modelo sincronizado.');
-      console.log(`Servidor corriendo en ${PORT}`);
-    });
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send({ message: 'Something went wrong!' });
+});
+
+app.listen(PORT, () => {
+  console.log('Conexión a la base de datos establecida y modelo sincronizado.');
+  console.log(`Servidor corriendo en ${PORT}`);
+});
   /*})
   .catch(error => {
     console.error('No se pudo conectar a la base de datos o sincronizar el modelo:', error);
   });*/
 
-  module.exports = app;
+module.exports = app;
