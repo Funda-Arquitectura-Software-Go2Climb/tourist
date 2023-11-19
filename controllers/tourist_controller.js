@@ -5,16 +5,16 @@ const getAllTourists = async (req, res) => {
     const tourists = await TouristService.getAllTourists();
     res.send(tourists);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).send({ error: error.message });
   }
 };
 
 const createTourist = async (req, res) => {
   try {
     const tourist = await TouristService.createTourist(req.body);
-    res.status(201).json(tourist);
+    res.status(201).send(tourist);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).send({ error: error.message });
   }
 };
 
@@ -24,12 +24,12 @@ const getTouristById = async (req, res) => {
     const tourist = await TouristService.getTouristById(id);
 
     if (!tourist) {
-      return res.status(404).json({ error: "Tourist not found" });
+      return res.status(404).send({ error: "Tourist not found" });
     }
 
-    res.json(tourist);
+    res.send(tourist);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).send({ error: error.message });
   }
 };
 
