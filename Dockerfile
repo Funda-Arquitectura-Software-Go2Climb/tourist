@@ -20,7 +20,7 @@ COPY . .
 RUN npx sequelize db:migrate
 
 # Expón el puerto en el que tu aplicación se ejecuta
-EXPOSE 10000
+EXPOSE 10001
 
 # Establece el comando para iniciar la aplicación
 CMD ["node", "server.js"]

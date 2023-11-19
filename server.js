@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 const touristRoutes = require('./routes/tourist_routes');
 app.use('/', touristRoutes);
 
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 10001;
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en ${PORT}`);
 });
